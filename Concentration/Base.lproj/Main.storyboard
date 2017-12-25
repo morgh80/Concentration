@@ -138,19 +138,33 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flips: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqT-Sx-Fd9">
-                                <rect key="frame" x="125.66666666666666" y="730" width="123.66666666666666" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <rect key="frame" x="16" y="742" width="87.666666666666671" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nyx-dQ-7Bl">
+                                <rect key="frame" x="227" y="735" width="132" height="51"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="32"/>
+                                <state key="normal" title="Play again">
+                                    <color key="titleColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playAgain:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jDC-Ia-fc6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="fqT-Sx-Fd9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9y3-tr-sRs"/>
+                            <constraint firstItem="nyx-dQ-7Bl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="8" id="AY5-QQ-GXq"/>
                             <constraint firstItem="fqT-Sx-Fd9" firstAttribute="firstBaseline" relation="greaterThanOrEqual" secondItem="2Ap-2g-5Ea" secondAttribute="baseline" constant="56" symbolType="layoutAnchor" id="BmF-8G-MIE"/>
                             <constraint firstItem="2Ap-2g-5Ea" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Cx1-So-u1k"/>
+                            <constraint firstItem="nyx-dQ-7Bl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="FkK-m0-bm3"/>
                             <constraint firstItem="2Ap-2g-5Ea" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LPt-QE-lTG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fqT-Sx-Fd9" secondAttribute="bottom" id="NZz-0Y-ht6"/>
-                            <constraint firstItem="fqT-Sx-Fd9" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pf5-hI-8An"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nyx-dQ-7Bl" secondAttribute="trailing" constant="16" id="QKn-55-3Fz"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fqT-Sx-Fd9" secondAttribute="trailing" constant="20" symbolic="YES" id="WKb-8V-ejq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Ap-2g-5Ea" secondAttribute="trailing" constant="16" id="zE3-ki-8My"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

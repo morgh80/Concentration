@@ -11,9 +11,9 @@ import GameKit
 
 class Concentration {
     
-    var cards = Array<Card>() // [Card]()
+    private(set)  var cards = Array<Card>() // [Card]()
     
-    var indexOfOneAndOlnlyFaceUpCard: Int? {
+    private var indexOfOneAndOlnlyFaceUpCard: Int? {
         get {
             var foundIndex: Int?
             for index in cards.indices {
