@@ -34,7 +34,15 @@ class ViewController: UIViewController {
     @IBOutlet private var cardButtons: [UIButton]!
     
     private func createEmojiSet() -> [String] {
-        return ["🧛‍♂️", "👩‍✈️", "🎅", "🐙", "🦋", "🍿", "🐥", "🦍", "🍅", "⚽️", "🏋️‍♀️"]
+        let simsSet = ["🧛‍♂️", "👩‍✈️", "🎅", "👩‍🍳", "👩‍💻", "👸", "🧟‍♂️"]
+        let animalSet = ["🐙", "🦋", "🐥", "🦍", "🐒", "🦀", "🦈"]
+        let sportSet =  ["🏌️‍♀️", "⚽️", "🏋️‍♀️", "🧗‍♂️", "🤺", "⛷", "🚴‍♂️"]
+        let facesSet = ["🤒", "😎", "🤨", "🤡", "😈", "😯", "🤠"]
+        let vehiclesSet = ["✈️", "🚁", "🚘", "🛵", "🚤", "🚠", "🚌"]
+        let veggiSet = ["🍋", "🌽", "🥦", "🍒", "🍇", "🍏", "🍓"]
+        let emojiChoiceSet = [simsSet, animalSet, sportSet, facesSet, vehiclesSet, veggiSet]
+        
+        return emojiChoiceSet[emojiChoiceSet.count.arc4random]
     }
     
     private lazy var emojiChoices = createEmojiSet()
