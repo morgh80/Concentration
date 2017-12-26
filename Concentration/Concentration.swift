@@ -11,7 +11,9 @@ import GameKit
 
 class Concentration {
     
-    private(set)  var cards = Array<Card>() // [Card]()
+    private(set) var cards = [Card]()
+    private(set) var flipCount = 0
+    private(set) var scoreCount = 0
     
     private var indexOfOneAndOlnlyFaceUpCard: Int? {
         get {
@@ -25,8 +27,6 @@ class Concentration {
         }
     }
     
-    
-    
     func choseCard(at index: Int) {
         if !cards[index].isMatched {
             if let matchIndex = indexOfOneAndOlnlyFaceUpCard, matchIndex != index {
@@ -34,12 +34,20 @@ class Concentration {
                 if cards[matchIndex] == cards[index] {
                     cards[matchIndex].isMatched = true
                     cards[index].isMatched = true
+                    scoreCount += 2
+                } else {
+                    scoreCount -= 1
                 }
                 cards[index].isFaceUp = true
             } else {
                 indexOfOneAndOlnlyFaceUpCard = index
             }
         }
+        flipCount += 1
+    }
+    func resetGame() {
+        flipCount = 0
+        scoreCount = 0
     }
     
     init(numberOfPairsOfCards: Int) {

@@ -12,26 +12,14 @@ class ViewController: UIViewController {
     
     private lazy var game = Concentration(numberOfPairsOfCards: (cardButtons.count / 2))
     
-    private var flipCount = 0 {
-        didSet {
-            flipCountLabel.text = "Flips: \(flipCount)"
-        }
-    }
-    
+    @IBOutlet private weak var flipCountLabel: UILabel!
+    @IBOutlet weak var scoreCountLabel: UILabel!
+    @IBOutlet private var cardButtons: [UIButton]!
     @IBAction func playAgain(_ sender: UIButton) {
-        flipCount = 0
         game = Concentration(numberOfPairsOfCards: (cardButtons.count / 2))
         emojiChoices = createEmojiSet()
-        for index in cardButtons.indices {
-            let button = cardButtons[index]
-            button.setTitle("", for: UIControlState.normal)
-            button.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
-            }
-        }
-    
-    @IBOutlet private weak var flipCountLabel: UILabel!
-    
-    @IBOutlet private var cardButtons: [UIButton]!
+        updateViewFromModel()
+    }
     
     private func createEmojiSet() -> [String] {
         let simsSet = ["🧛‍♂️", "👩‍✈️", "🎅", "👩‍🍳", "👩‍💻", "👸", "🧟‍♂️"]
@@ -47,8 +35,7 @@ class ViewController: UIViewController {
     
     private lazy var emojiChoices = createEmojiSet()
  
-    @IBAction func touchCard(_ sender: UIButton) {
-        flipCount += 1
+        @IBAction func touchCard(_ sender: UIButton) {
         if let cardNumber = cardButtons.index(of: sender) {
             game.choseCard(at: cardNumber)
             updateViewFromModel()
@@ -67,6 +54,8 @@ class ViewController: UIViewController {
                 button.backgroundColor = card.isMatched ? #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0) : #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
             }
         }
+        scoreCountLabel.text = "Score: \(game.scoreCount)"
+        flipCountLabel.text = "Flips: \(game.flipCount)"
     }
     
     private var emoji = [Card:String]()
@@ -81,6 +70,7 @@ class ViewController: UIViewController {
 }
 
 extension Int {
+    
     var arc4random: Int {
         if self > 0 {
             return Int(arc4random_uniform(UInt32(self)))
@@ -90,4 +80,5 @@ extension Int {
             return 0
         }
     }
+    
 }
